@@ -1,4 +1,22 @@
 {
-  "name" : "barebones",
-  "version" : "0.0.0"
+  "name" : "softwarewolves",
+  "version" : "0.0.1"
+  "author": "Johan Peeters and Nelis Boucké (yo@johanpeeters.com, nelis.boucke@archiwise.com",
+  "description": "Gamecoordinator and master of ceremony for the werewolves game",
+  "contributors": [ 
+    {
+      "name": "Johan Peeters",
+      "email": "yo@johanpeeters.com"
+    },
+    {
+      "name": "Nelis Boucké",
+      "email": "nelis.boucke@archiwise.com"
+    }  
+  ],
+   "dependencies" : {
+    "node-stringprep"   :  "*",
+    "node-xmpp" :  "*",
+    "should" :  "*",
+    "mocha"    :  "*"
+  },
 }
