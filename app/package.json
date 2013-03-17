@@ -1,6 +1,6 @@
 {
   "name" : "softwarewolves",
-  "version" : "0.0.1"
+  "version" : "0.0.1",
   "author": "Johan Peeters and Nelis Boucké (yo@johanpeeters.com, nelis.boucke@archiwise.com",
   "description": "Gamecoordinator and master of ceremony for the werewolves game",
   "contributors": [ 
@@ -18,5 +18,5 @@
     "node-xmpp" :  "*",
     "should" :  "*",
     "mocha"    :  "*"
-  },
+  }
 }
