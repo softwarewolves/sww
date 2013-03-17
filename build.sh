@@ -6,6 +6,8 @@
 node_version=v0.8.14
 file_name=node-$node_version-linux-x64
 
+apt-get install libicu-dev
+
 if [ ! -e $file_name ]
 then
     wget http://nodejs.org/dist/$node_version/$file_name.tar.gz
