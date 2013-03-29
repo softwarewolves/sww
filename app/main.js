@@ -1,4 +1,4 @@
-const GameEngine = require('lib/game_engine');
+const GameEngine = require('./lib/game_engine');
 
 var gameCoordinator = 'sww@jabber.org';
 var gameCoordinatorPw = 's0ftwarew0lf';
