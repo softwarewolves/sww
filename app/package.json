@@ -14,7 +14,6 @@
     }  
   ],
    "dependencies" : {
-    "node-stringprep"   :  "*",
     "node-xmpp" :  "*",
     "should" :  "*",
     "mocha"    :  "*"
