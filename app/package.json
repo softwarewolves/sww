@@ -17,6 +17,7 @@
     "node-stringprep" :  "*",
     "node-xmpp" :  "*",
     "should" :  "*",
-    "mocha"    :  "*"
+    "mocha"    :  "*",
+    "node-expat"    :  "*"
   }
 }
