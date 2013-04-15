@@ -12,7 +12,7 @@ function GameCoordinator(jid, password, host) {
 
     const self = this;
     var participants = [];
-    var wait_time = 1000;
+    var wait_time = 10000;
 
     self.receivedPlayRequestFrom = function (player) {
         return participants.indexOf(player) >= 0;
