@@ -14,10 +14,10 @@
     }  
   ],
    "dependencies" : {
-    "node-stringprep" :  "*",
+    "node-stringprep" :  "0.1.0",
     "node-xmpp" :  "*",
     "should" :  "*",
     "mocha"    :  "*",
-    "node-expat"    :  "1.6.1"
+    "node-expat"    :  "1.6.1",
   }
 }
