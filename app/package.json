@@ -18,6 +18,6 @@
     "node-xmpp" :  "*",
     "should" :  "*",
     "mocha"    :  "*",
-    "node-expat"    :  "*"
+    "node-expat"    :  "1.6.1"
   }
 }
