@@ -4,8 +4,8 @@ const Bot = require('./bot');
 const BotXmppHelper = require('./bot_xmpp_helper');
 const xmpp = require('node-xmpp');
 
-const nicknames = ['fred_villager', 'joligeheidi', 'bimboooo', 'den_john', 'koude_man', 'pelvis', 'mo_werewolf'];
-const passwords = ['fred_villager', 'asjemenou', 'bimboooo', 'den_john', 'koude_man', 'elvispelvis', 'mo_werewolf'];
+const nicknames = ['fred_villager', 'joligeheidi', 'bimboooo', 'den_john', 'koude_man', 'pelvis', 'mo_werewolf', 'iron_lady', 'scargill'];
+const passwords = ['fred_villager', 'asjemenou', 'bimboooo', 'den_john', 'koude_man', 'elvispelvis', 'mo_werewolf', 'iron_lady', 'mineworkers'];
 
 const muc_ns = 'http://jabber.org/protocol/muc';
 
@@ -32,7 +32,7 @@ function GameEngine(gameCoordinatorJID, gameCoordinatorPw, moderatorJID, moderat
         }
 
 
-        for (var i = participants.length; i < 7; i++) {
+        for (var i = participants.length; i < 9; i++) {
             var bot = startBot(nicknames[i], passwords[i], roomJID);
             bot.xmppHelper.on('online', onOnline(bot));
             toInvite.push(nicknames[i] + '@' + xmppSrv);
