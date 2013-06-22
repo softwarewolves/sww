@@ -28,39 +28,41 @@ function GameCoordinator(jid, password, host) {
     self.on('message', function (stanza) {
         const waittimeResponseParts = magicStrings.getMagicString('WAITTIME_RESPONSE');
         const waittimeRequest = magicStrings.getMagicString('WAITTIME');
-        const text = stanza.getChild('body').getText();
-        // if the message is about the wait time for new participants
-        if (text.match(new RegExp(waittimeRequest))) {
-            const millis = text.slice(waittimeRequest.length).trim() * 1000;
-            if (millis > 0) wait_time = millis;
-            const msg = new xmpp.Message({to:stanza.from});
-            msg.c('body').t(waittimeResponseParts[0]
-                + (wait_time / 1000)
-                + waittimeResponseParts[1]);
-            self.client.send(msg);
-        } else {
-            const matchResult = text.match(PLAY_REQUEST_REGEXP);
-            if (matchResult) {
-                const from = self.parse_user(stanza.from)[1];
-                if (self.numberOfQueuedPlayers() == 0) {
-                    setTimeout(function () {
-                        // close the registration window and start the game
-                        self.emit('time to play', participants);
-                        participants = [];
-                    }, wait_time);
-                }
-                if (!self.receivedPlayRequestFrom(from)) {
-                    participants.push(from);
-                }
+        const body = stanza.getChild('body');
+        if (body) {
+            const text = stanza.getChild('body').getText();
+            // if the message is about the wait time for new participants
+            if (text.match(new RegExp(waittimeRequest))) {
+                const millis = text.slice(waittimeRequest.length).trim() * 1000;
+                if (millis > 0) wait_time = millis;
+                const msg = new xmpp.Message({to:stanza.from});
+                msg.c('body').t(waittimeResponseParts[0]
+                    + (wait_time / 1000)
+                    + waittimeResponseParts[1]);
+                self.client.send(msg);
             } else {
-                util.log('ignoring unrecognized message: ' + text)
+                const matchResult = text.match(PLAY_REQUEST_REGEXP);
+                if (matchResult) {
+                    const from = self.parse_user(stanza.from)[1];
+                    if (self.numberOfQueuedPlayers() == 0) {
+                        setTimeout(function () {
+                            // close the registration window and start the game
+                            self.emit('time to play', participants);
+                            participants = [];
+                        }, wait_time);
+                    }
+                    if (!self.receivedPlayRequestFrom(from)) {
+                        participants.push(from);
+                    }
+                } else {
+                    util.log('ignoring unrecognized message: ' + text)
+                }
             }
         }
     });
 }
 
 util.inherits(GameCoordinator, Resource);
-
 
 
 module.exports = GameCoordinator;
