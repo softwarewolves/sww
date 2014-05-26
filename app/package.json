@@ -14,10 +14,9 @@
     }  
   ],
    "dependencies" : {
-    "node-stringprep" :  "0.1.0",
-    "node-xmpp" :  "0.3.2",
+    "node-xmpp" :  "1.0.0-alpha1",
     "should" :  "*",
     "mocha"    :  "*",
-    "node-expat"    :  "1.6.1"
+    "node-expat"    :  "2.2.0"
   }
 }
